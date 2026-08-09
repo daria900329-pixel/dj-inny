@@ -1,7 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Crown, Mic2, Sparkles, ShieldCheck, Users, Music4, Star, Quote } from "lucide-react";
+import {
+  Crown,
+  Mic2,
+  Sparkles,
+  ShieldCheck,
+  Users,
+  Music4,
+  Star,
+  Quote,
+  Plus,
+  MapPin,
+  CalendarCheck,
+  PartyPopper,
+} from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import heroVideo from "@/assets/hero.mp4.asset.json";
+import flyer from "@/assets/flyer.jpg.asset.json";
+
 import wesele from "@/assets/wesele.jpg";
 import firmowe from "@/assets/firmowe.jpg";
 import studniowka from "@/assets/studniowka.jpg";
