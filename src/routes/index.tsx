@@ -1,7 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Crown, Mic2, Sparkles, ShieldCheck, Users, Music4, Star, Quote } from "lucide-react";
+import {
+  Crown,
+  Mic2,
+  Sparkles,
+  ShieldCheck,
+  Users,
+  Music4,
+  Star,
+  Quote,
+  Plus,
+  MapPin,
+  CalendarCheck,
+  PartyPopper,
+} from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import heroVideo from "@/assets/hero.mp4.asset.json";
+import flyer from "@/assets/flyer.jpg.asset.json";
+
 import wesele from "@/assets/wesele.jpg";
 import firmowe from "@/assets/firmowe.jpg";
 import studniowka from "@/assets/studniowka.jpg";
@@ -54,7 +69,31 @@ const oferta = [
   },
 ];
 
+const faq = [
+  {
+    q: "Jaki rodzaj muzyki gracie?",
+    a: "Repertuar dobieram do gości i charakteru imprezy — od ponadczasowych klasyków, przez disco polo, po najnowsze światowe hity.",
+    icon: Music4,
+  },
+  {
+    q: "Czy dojeżdżasz do innych miast?",
+    a: "Tak — obsługuję cały Dolny Śląsk, a na życzenie dojeżdżam w dowolne miejsce w Polsce.",
+    icon: MapPin,
+  },
+  {
+    q: "Czy prowadzisz zabawy podczas imprezy?",
+    a: "Oczywiście. Zabawy dobieram z wyczuciem — nigdy nachalnie, zawsze tak, by goście świetnie się bawili.",
+    icon: PartyPopper,
+  },
+  {
+    q: "Czy możemy omówić szczegóły i plan imprezy przed wydarzeniem?",
+    a: "Zawsze spotykamy się (osobiście lub online), by dopiąć harmonogram, listę utworów i wszystkie życzenia.",
+    icon: CalendarCheck,
+  },
+];
+
 const opinie = [
+
   {
     n: "Anna",
     t: "Najlepszy wybór na nasze wesele! Goście bawili się do białego rana. Polecamy z całego serca!",
@@ -145,6 +184,90 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <section className="border-t border-border/60 px-5 py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.85fr_1fr]">
+          <div className="relative">
+            <div className="absolute -inset-3 rounded-[1.6rem] bg-gradient-to-br from-gold/40 via-transparent to-gold/10 blur-[2px]" />
+            <img
+              src={flyer.url}
+              alt="Krzysztof Klimek — DJ Inny za konsoletą"
+              loading="lazy"
+              className="relative aspect-[4/5] w-full rounded-[1.4rem] border border-gold/30 object-cover object-top shadow-2xl"
+            />
+          </div>
+          <div>
+            <p className="kicker">Moja historia</p>
+            <h2 className="mt-3 text-4xl md:text-5xl">Krzysztof Klimek</h2>
+            <div className="mt-6 space-y-5 text-muted-foreground">
+              <p>
+                Moja przygoda z muzyką i sceną zaczęła się, gdy miałem zaledwie 13 lat. Pierwsze
+                imprezy, pierwsze emocje i pierwszy kontakt z ludźmi utwierdziły mnie w przekonaniu,
+                że to jest moja droga.
+              </p>
+              <p>
+                Przez wiele lat śpiewałem i grałem na keyboardzie w zespole muzycznym. Z czasem
+                odkryłem DJ-owanie — połączenie muzyki, techniki i prowadzenia imprezy, które
+                pozwala mi w pełni realizować moją pasję.
+              </p>
+              <p>
+                Uwielbiam ludzi i muzykę — to one napędzają mnie od ponad 31 lat. Największą
+                satysfakcją jest dla mnie moment, gdy parkiet tętni życiem, a goście bawią się razem
+                od pierwszego do ostatniego utworu.
+              </p>
+            </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {[
+                ["31", "lat doświadczenia"],
+                ["500+", "imprez"],
+                ["100%", "zaangażowania"],
+              ].map(([n, l]) => (
+                <div key={l} className="card-lux p-5 text-center">
+                  <p className="text-3xl text-gilded">{n}</p>
+                  <p className="mt-1 text-[0.65rem] uppercase tracking-[0.18em]">{l}</p>
+                </div>
+              ))}
+            </div>
+            <Link to="/o-mnie" className="btn-ghost-gold mt-8">
+              Poznaj mnie lepiej
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border/60 bg-card/30 px-5 py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+          <div>
+            <p className="kicker">FAQ</p>
+            <h2 className="mt-3 text-3xl md:text-4xl">Najczęstsze pytania</h2>
+            <div className="mt-8 space-y-3">
+              {faq.map(({ q, a, icon: Icon }) => (
+                <details
+                  key={q}
+                  className="group card-lux overflow-hidden px-5 py-4 transition-colors hover:border-gold/50"
+                >
+                  <summary className="flex cursor-pointer list-none items-center gap-4">
+                    <Icon className="size-5 shrink-0 text-gold" />
+                    <span className="flex-1 text-sm text-foreground/90">{q}</span>
+                    <Plus className="size-4 shrink-0 text-gold transition-transform group-open:rotate-45" />
+                  </summary>
+                  <p className="mt-3 pl-9 text-sm text-muted-foreground">{a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+          <div className="relative">
+            <div className="absolute -inset-3 rounded-[1.6rem] bg-gradient-to-tr from-gold/30 via-transparent to-gold/10 blur-[2px]" />
+            <img
+              src={wesele}
+              alt="Pierwszy taniec pary młodej w oprawie fontann iskier"
+              loading="lazy"
+              className="relative aspect-[4/3] w-full rounded-[1.4rem] border border-gold/30 object-cover shadow-2xl"
+            />
+          </div>
+        </div>
+      </section>
+
 
       <section className="border-y border-border/60 bg-card/30 px-5 py-20">
         <div className="mx-auto max-w-7xl">
