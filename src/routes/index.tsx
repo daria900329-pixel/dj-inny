@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import heroVideo from "@/assets/hero.mp4.asset.json";
-import flyer from "@/assets/flyer.jpg.asset.json";
+import krzysiekBiznes from "@/assets/krzysiek-biznes.png.asset.json";
 
 import wesele from "@/assets/wesele.jpg";
 import firmowe from "@/assets/firmowe.jpg";
@@ -190,10 +190,10 @@ function Home() {
           <div className="relative">
             <div className="absolute -inset-3 rounded-[1.6rem] bg-gradient-to-br from-gold/40 via-transparent to-gold/10 blur-[2px]" />
             <img
-              src={flyer.url}
-              alt="Krzysztof Klimek — DJ Inny za konsoletą"
+              src={krzysiekBiznes.url}
+              alt="Krzysztof Klimek — DJ Inny w eleganckiej biznesowej stylizacji"
               loading="lazy"
-              className="relative aspect-[4/5] w-full rounded-[1.4rem] border border-gold/30 object-cover object-top shadow-2xl"
+              className="relative aspect-[2/3] w-full rounded-[1.4rem] border border-gold/30 object-cover shadow-2xl"
             />
           </div>
           <div>
