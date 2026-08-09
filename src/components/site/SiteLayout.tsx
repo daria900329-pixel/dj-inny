@@ -17,7 +17,7 @@ function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
-          <img src={logo.url} alt="DJ Inny — logo" className="h-10 w-auto" />
+          <img src={logo.url} alt="DJ Inny — logo" className="h-14 w-auto md:h-20" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
@@ -67,7 +67,7 @@ function Footer() {
     <footer className="border-t border-border/60 bg-card/40">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
-          <img src={logo.url} alt="DJ Inny" className="h-12 w-auto" />
+          <img src={logo.url} alt="DJ Inny" className="h-20 w-auto" />
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
             DJ • Wodzirej • Konferansjer. To nie tylko muzyka — to przeżycie.
           </p>
