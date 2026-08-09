@@ -69,7 +69,31 @@ const oferta = [
   },
 ];
 
+const faq = [
+  {
+    q: "Jaki rodzaj muzyki gracie?",
+    a: "Repertuar dobieram do gości i charakteru imprezy — od ponadczasowych klasyków, przez disco polo, po najnowsze światowe hity.",
+    icon: Music4,
+  },
+  {
+    q: "Czy dojeżdżasz do innych miast?",
+    a: "Tak — obsługuję cały Dolny Śląsk, a na życzenie dojeżdżam w dowolne miejsce w Polsce.",
+    icon: MapPin,
+  },
+  {
+    q: "Czy prowadzisz zabawy podczas imprezy?",
+    a: "Oczywiście. Zabawy dobieram z wyczuciem — nigdy nachalnie, zawsze tak, by goście świetnie się bawili.",
+    icon: PartyPopper,
+  },
+  {
+    q: "Czy możemy omówić szczegóły i plan imprezy przed wydarzeniem?",
+    a: "Zawsze spotykamy się (osobiście lub online), by dopiąć harmonogram, listę utworów i wszystkie życzenia.",
+    icon: CalendarCheck,
+  },
+];
+
 const opinie = [
+
   {
     n: "Anna",
     t: "Najlepszy wybór na nasze wesele! Goście bawili się do białego rana. Polecamy z całego serca!",
