@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GaleriaRouteImport } from './routes/galeria'
+import { Route as KontaktRouteImport } from './routes/kontakt'
+import { Route as OMnieRouteImport } from './routes/o-mnie'
+import { Route as OfertaRouteImport } from './routes/oferta'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GaleriaRoute = GaleriaRouteImport.update({
+  id: '/galeria',
+  path: '/galeria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktRoute = KontaktRouteImport.update({
+  id: '/kontakt',
+  path: '/kontakt',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OMnieRoute = OMnieRouteImport.update({
+  id: '/o-mnie',
+  path: '/o-mnie',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OfertaRoute = OfertaRouteImport.update({
+  id: '/oferta',
+  path: '/oferta',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/galeria': typeof GaleriaRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-mnie': typeof OMnieRoute
+  '/oferta': typeof OfertaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/galeria': typeof GaleriaRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-mnie': typeof OMnieRoute
+  '/oferta': typeof OfertaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/galeria': typeof GaleriaRoute
+  '/kontakt': typeof KontaktRoute
+  '/o-mnie': typeof OMnieRoute
+  '/oferta': typeof OfertaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/galeria' | '/kontakt' | '/o-mnie' | '/oferta'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/galeria' | '/kontakt' | '/o-mnie' | '/oferta'
+  id: '__root__' | '/' | '/galeria' | '/kontakt' | '/o-mnie' | '/oferta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GaleriaRoute: typeof GaleriaRoute
+  KontaktRoute: typeof KontaktRoute
+  OMnieRoute: typeof OMnieRoute
+  OfertaRoute: typeof OfertaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +88,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/galeria': {
+      id: '/galeria'
+      path: '/galeria'
+      fullPath: '/galeria'
+      preLoaderRoute: typeof GaleriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontakt': {
+      id: '/kontakt'
+      path: '/kontakt'
+      fullPath: '/kontakt'
+      preLoaderRoute: typeof KontaktRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/o-mnie': {
+      id: '/o-mnie'
+      path: '/o-mnie'
+      fullPath: '/o-mnie'
+      preLoaderRoute: typeof OMnieRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oferta': {
+      id: '/oferta'
+      path: '/oferta'
+      fullPath: '/oferta'
+      preLoaderRoute: typeof OfertaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GaleriaRoute: GaleriaRoute,
+  KontaktRoute: KontaktRoute,
+  OMnieRoute: OMnieRoute,
+  OfertaRoute: OfertaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
