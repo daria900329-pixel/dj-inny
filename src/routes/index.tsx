@@ -68,16 +68,19 @@ function Home() {
     <SiteLayout>
       <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-black">
         <video
-          className="absolute inset-0 size-full object-cover brightness-110 contrast-105"
+          className="absolute inset-0 size-full object-cover brightness-110 contrast-110 saturate-105"
           src={heroVideo.url}
           autoPlay
           muted
           loop
           playsInline
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
 
-        <div className="relative mx-auto w-full max-w-7xl px-5 pt-28 pb-20">
+        <div
+          className="relative mx-auto w-full max-w-7xl px-5 pt-28 pb-20"
+          style={{ textShadow: "0 2px 30px rgba(0,0,0,0.55)" }}
+        >
           <p className="kicker">DJ • Wodzirej • Konferansjer</p>
           <h1 className="mt-5 max-w-2xl text-5xl leading-[1.05] md:text-7xl">
             To nie tylko muzyka —<br />
