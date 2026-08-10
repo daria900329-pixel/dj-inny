@@ -14,8 +14,8 @@ import {
   PartyPopper,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import heroVideo from "@/assets/hero.mp4.asset.json";
-import krzysiekBiznes from "@/assets/krzysiek-biznes.png.asset.json";
+import heroDj from "@/assets/hero-dj.png.asset.json";
+import krzysiekBiznes from "@/assets/krzysiek-portret.png.asset.json";
 
 import wesele from "@/assets/wesele.jpg";
 import firmowe from "@/assets/firmowe.jpg";
