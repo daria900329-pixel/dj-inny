@@ -105,40 +105,45 @@ const opinie = [
 function Home() {
   return (
     <SiteLayout>
-      <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-black">
-        <video
-          className="absolute inset-0 size-full object-cover brightness-110 contrast-110 saturate-105"
-          src={heroVideo.url}
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent" />
+      <section className="relative overflow-hidden bg-black pt-24">
+        <div className="absolute inset-0">
+          <img
+            src={heroDj.url}
+            alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
+            className="size-full object-cover object-[70%_center]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        </div>
 
         <div
-          className="relative mx-auto w-full max-w-7xl px-5 pt-28 pb-20"
-          style={{ textShadow: "0 2px 30px rgba(0,0,0,0.55)" }}
+          className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-24 pt-10 lg:min-h-[78vh] lg:grid-cols-[1.05fr_1fr]"
+          style={{ textShadow: "0 2px 30px rgba(0,0,0,0.65)" }}
         >
-          <p className="kicker">DJ • Wodzirej • Konferansjer</p>
-          <h1 className="mt-5 max-w-2xl text-5xl leading-[1.05] md:text-7xl">
-            To nie tylko muzyka —<br />
-            <span className="text-gilded">to przeżycie</span>
-          </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground">
-            Tańczą nawet ci, którzy nigdy nie tańczą. Tworzę imprezy, o których mówi się jeszcze
-            długo — z klasą, humorem i perfekcyjną organizacją.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <Link to="/kontakt" className="btn-gold">
-              Zarezerwuj termin
-            </Link>
-            <Link to="/oferta" className="btn-ghost-gold">
-              Zobacz ofertę
-            </Link>
+          <div>
+            <h1 className="text-5xl leading-[1.02] md:text-7xl">
+              <span className="text-gilded">DJ Wodzirej</span>
+            </h1>
+            <p className="mt-5 text-lg font-semibold text-gold md:text-2xl">
+              Od 13 roku życia przez 31 lat na scenie
+            </p>
+            <p className="mt-6 max-w-xl text-muted-foreground">
+              Tworzę niezapomniane wydarzenia. Porwę Waszych gości do tańca i poprowadzę imprezę
+              z klasą, humorem i perfekcyjną organizacją.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-4">
+              <Link to="/o-mnie" className="btn-gold">
+                Dowiedz się więcej <ArrowRight className="size-4" />
+              </Link>
+              <Link to="/kontakt" className="btn-ghost-gold">
+                Zapytaj o termin <CalendarCheck className="size-4" />
+              </Link>
+            </div>
           </div>
+          <div className="hidden lg:block" />
         </div>
       </section>
+
 
       <section className="border-y border-border/60 bg-card/30 px-5 py-16">
         <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
