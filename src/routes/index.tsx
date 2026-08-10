@@ -12,6 +12,7 @@ import {
   MapPin,
   CalendarCheck,
   PartyPopper,
+  ArrowRight,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import heroDj from "@/assets/hero-dj.png.asset.json";
