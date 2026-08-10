@@ -111,16 +111,17 @@ function Home() {
           <img
             src={heroDj.url}
             alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
-            className="size-full object-cover object-[68%_20%]"
+            className="size-full object-cover object-[72%_top] brightness-110 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-black/10" />
-          <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/45 to-transparent md:via-black/35" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         </div>
 
         <div
-          className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-20 pt-10 min-h-[560px] lg:min-h-[660px] lg:grid-cols-[1.05fr_1fr]"
-          style={{ textShadow: "0 2px 30px rgba(0,0,0,0.65)" }}
+          className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-20 pt-10 min-h-[640px] lg:min-h-[780px] lg:grid-cols-[1.05fr_1fr]"
+          style={{ textShadow: "0 2px 24px rgba(0,0,0,0.85)" }}
         >
+
           <div>
             <h1 className="text-5xl leading-[1.02] md:text-7xl">
               <span className="text-gilded">DJ Wodzirej</span>
