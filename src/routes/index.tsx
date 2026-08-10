@@ -107,7 +107,7 @@ function Home() {
   return (
     <SiteLayout>
       <section className="relative overflow-hidden bg-black pt-24">
-        <div className="absolute inset-0">
+        <div className="absolute inset-x-0 bottom-0 top-24">
           <img
             src={heroDj.url}
             alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
@@ -121,30 +121,31 @@ function Home() {
           className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-20 pt-10 min-h-[640px] lg:min-h-[780px] lg:grid-cols-[1.05fr_1fr]"
           style={{ textShadow: "0 2px 24px rgba(0,0,0,0.85)" }}
         >
-
           <div>
-            <h1 className="text-5xl leading-[1.02] md:text-7xl">
-              <span className="text-gilded">DJ Wodzirej</span>
-            </h1>
-            <p className="mt-5 text-lg font-semibold text-gold md:text-2xl">
-              Od 13 roku życia przez 31 lat na scenie
+            <p className="text-xs font-bold tracking-[0.3em] text-gold md:text-sm">
+              DJ • WODZIREJ • KONFERANSJER
             </p>
-            <p className="mt-6 max-w-xl text-muted-foreground">
-              Tworzę niezapomniane wydarzenia. Porwę Waszych gości do tańca i poprowadzę imprezę
-              z klasą, humorem i perfekcyjną organizacją.
+            <h1 className="mt-5 text-5xl leading-[1.02] md:text-7xl">
+              To nie tylko muzyka —{" "}
+              <span className="text-gilded">to przeżycie</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-muted-foreground md:text-lg">
+              Tańczą nawet ci, którzy nigdy nie tańczą. Tworzę imprezy, o których mówi się
+              jeszcze długo — z klasą, humorem i perfekcyjną organizacją.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
-              <Link to="/o-mnie" className="btn-gold">
-                Dowiedz się więcej <ArrowRight className="size-4" />
+              <Link to="/kontakt" className="btn-gold">
+                Zarezerwuj termin <CalendarCheck className="size-4" />
               </Link>
-              <Link to="/kontakt" className="btn-ghost-gold">
-                Zapytaj o termin <CalendarCheck className="size-4" />
+              <Link to="/oferta" className="btn-ghost-gold">
+                Zobacz ofertę <ArrowRight className="size-4" />
               </Link>
             </div>
           </div>
           <div className="hidden lg:block" />
         </div>
       </section>
+
 
 
       <section className="border-y border-border/60 bg-card/30 px-5 py-16">
