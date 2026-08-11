@@ -2,17 +2,19 @@ import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 import { Menu, X, Phone, Facebook, Globe, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png.asset.json";
-
-const nav = [
-  { to: "/", label: "Home" },
-  { to: "/o-mnie", label: "O mnie" },
-  { to: "/oferta", label: "Oferta" },
-  { to: "/galeria", label: "Galeria" },
-  { to: "/kontakt", label: "Kontakt" },
-] as const;
+import { useText } from "@/hooks/useSiteContent";
 
 function Header() {
   const [open, setOpen] = useState(false);
+  const t = useText();
+  const nav = [
+    { to: "/", label: t("nav.home") },
+    { to: "/o-mnie", label: t("nav.about") },
+    { to: "/oferta", label: t("nav.offer") },
+    { to: "/galeria", label: t("nav.gallery") },
+    { to: "/kontakt", label: t("nav.contact") },
+  ] as const;
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
@@ -32,7 +34,7 @@ function Header() {
             </Link>
           ))}
           <Link to="/kontakt" className="btn-gold !px-5 !py-2.5">
-            Zarezerwuj termin
+            {t("nav.cta")}
           </Link>
         </nav>
         <button
@@ -63,42 +65,41 @@ function Header() {
 }
 
 function Footer() {
+  const t = useText();
   return (
     <footer className="border-t border-border/60 bg-card/40">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 md:grid-cols-3">
         <div>
           <img src={logo.url} alt="DJ Inny" className="h-20 w-auto" />
-          <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            DJ • Wodzirej • Konferansjer. To nie tylko muzyka — to przeżycie.
-          </p>
+          <p className="mt-4 max-w-xs text-sm text-muted-foreground">{t("footer.tagline")}</p>
         </div>
         <div className="space-y-3 text-sm text-muted-foreground">
-          <p className="kicker">Kontakt</p>
+          <p className="kicker">{t("nav.contact")}</p>
           <a href="tel:+48515646970" className="flex items-center gap-3 hover:text-gold">
-            <Phone className="size-4 text-gold" /> 515 646 970
+            <Phone className="size-4 text-gold" /> {t("contact.phone")}
           </a>
           <a
             href="https://facebook.com/djinny.klimek"
             className="flex items-center gap-3 hover:text-gold"
           >
-            <Facebook className="size-4 text-gold" /> facebook.com/djinny.klimek
+            <Facebook className="size-4 text-gold" /> {t("contact.facebook")}
           </a>
           <p className="flex items-center gap-3">
-            <Globe className="size-4 text-gold" /> www.djinny.pl
+            <Globe className="size-4 text-gold" /> {t("contact.www")}
           </p>
           <p className="flex items-center gap-3">
-            <MapPin className="size-4 text-gold" /> Dolny Śląsk i cała Polska
+            <MapPin className="size-4 text-gold" /> {t("contact.area")}
           </p>
         </div>
         <div className="space-y-3 text-sm text-muted-foreground">
-          <p className="kicker">Realizacje</p>
-          <p>Wesela • Imprezy firmowe • Urodziny</p>
-          <p>Studniówki • Biesiady śpiewane przy stołach</p>
-          <p>Autorskie gry, konkursy i zabawy</p>
+          <p className="kicker">{t("footer.realizations.title")}</p>
+          <p>{t("footer.realizations.1")}</p>
+          <p>{t("footer.realizations.2")}</p>
+          <p>{t("footer.realizations.3")}</p>
         </div>
       </div>
       <div className="border-t border-border/60 px-5 py-5 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} DJ INNY — Krzysztof Klimek. Wszelkie prawa zastrzeżone.
+        © {new Date().getFullYear()} {t("footer.copyright")}
       </div>
     </footer>
   );
