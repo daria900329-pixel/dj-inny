@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
+import { useText } from "@/hooks/useSiteContent";
 import wesele from "@/assets/wesele.jpg";
 import firmowe from "@/assets/firmowe.jpg";
 import studniowka from "@/assets/studniowka.jpg";
@@ -26,86 +27,40 @@ export const Route = createFileRoute("/oferta")({
   component: Offer,
 });
 
-const pakiety = [
-  {
-    img: wesele,
-    t: "Oferta weselna",
-    d: "Kompleksowa oprawa muzyczna i prowadzenie wesela.",
-    p: [
-      "Prowadzenie z klasą i humorem",
-      "Muzyka dla każdego pokolenia",
-      "Autorskie gry i konkursy",
-      "Oprawa świetlna i ciężki dym",
-    ],
-  },
-  {
-    img: firmowe,
-    t: "Imprezy firmowe",
-    d: "Jubileusze, bankiety, gale i eventy okolicznościowe.",
-    p: [
-      "Elegancka konferansjerka",
-      "Dopasowany repertuar",
-      "Nagłośnienie sal do 300 osób",
-      "Współpraca z organizatorem",
-    ],
-  },
-  {
-    img: studniowka,
-    t: "Studniówki i urodziny",
-    d: "Dynamiczna zabawa i najnowsze hity.",
-    p: [
-      "Polonez i oficjalna część",
-      "Najnowsze hity i klasyki",
-      "Efekty specjalne",
-      "Energia od pierwszej minuty",
-    ],
-  },
-];
-
-const dodatki = [
-  "Biesiady śpiewane przy stołach",
-  "Ciężki dym do pierwszego tańca",
-  "Fontanny iskier",
-  "Miny dymne i konfetti",
-  "Oświetlenie dekoracyjne sali",
-  "Nagłośnienie ceremonii plenerowej",
-];
+const images = [wesele, firmowe, studniowka];
 
 function Offer() {
+  const t = useText();
   return (
     <SiteLayout>
-      <PageHero
-        kicker="Oferta"
-        title="Wybierz imprezę, o której marzysz"
-        lead="Każde wydarzenie przygotowuję indywidualnie — od repertuaru po scenariusz i oprawę wizualną."
-      />
+      <PageHero kicker={t("offer.kicker")} title={t("offer.title")} lead={t("offer.lead")} />
       <section className="mx-auto max-w-7xl space-y-10 px-5 py-16">
-        {pakiety.map((p, i) => (
+        {[1, 2, 3].map((n, i) => (
           <article
-            key={p.t}
+            key={n}
             className={`card-lux grid overflow-hidden md:grid-cols-2 ${i % 2 ? "md:[&>img]:order-2" : ""}`}
           >
             <img
-              src={p.img}
-              alt={p.t}
+              src={images[i]}
+              alt={t(`offer.${n}.t`)}
               loading="lazy"
               width={1280}
               height={853}
               className="h-full min-h-64 w-full object-cover"
             />
             <div className="p-8">
-              <h2 className="text-2xl text-gold-soft">{p.t}</h2>
-              <p className="mt-3 text-sm text-muted-foreground">{p.d}</p>
+              <h2 className="text-2xl text-gold-soft">{t(`offer.${n}.t`)}</h2>
+              <p className="mt-3 text-sm text-muted-foreground">{t(`offer.${n}.d`)}</p>
               <ul className="mt-6 space-y-3">
-                {p.p.map((x) => (
-                  <li key={x} className="flex items-start gap-3 text-sm text-muted-foreground">
+                {[1, 2, 3, 4].map((p) => (
+                  <li key={p} className="flex items-start gap-3 text-sm text-muted-foreground">
                     <Check className="mt-0.5 size-4 shrink-0 text-gold" />
-                    {x}
+                    {t(`offer.${n}.p${p}`)}
                   </li>
                 ))}
               </ul>
               <Link to="/kontakt" className="btn-ghost-gold mt-7">
-                Zapytaj o termin
+                {t("offer.cta")}
               </Link>
             </div>
           </article>
@@ -113,13 +68,13 @@ function Offer() {
       </section>
       <section className="border-t border-border/60 bg-card/30 px-5 py-16">
         <div className="mx-auto max-w-7xl">
-          <p className="kicker text-center">Dodatki</p>
-          <h2 className="mt-3 text-center text-3xl">Oprawa, która robi różnicę</h2>
+          <p className="kicker text-center">{t("offer.extras.kicker")}</p>
+          <h2 className="mt-3 text-center text-3xl">{t("offer.extras.title")}</h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {dodatki.map((d) => (
+            {[1, 2, 3, 4, 5, 6].map((d) => (
               <div key={d} className="card-lux flex items-center gap-3 p-5 text-sm">
                 <Check className="size-4 text-gold" />
-                {d}
+                {t(`offer.extra.${d}`)}
               </div>
             ))}
           </div>

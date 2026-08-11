@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
+import { useText } from "@/hooks/useSiteContent";
 import wesele from "@/assets/wesele.jpg";
 import firmowe from "@/assets/firmowe.jpg";
 import studniowka from "@/assets/studniowka.jpg";
@@ -25,13 +26,10 @@ export const Route = createFileRoute("/galeria")({
 const photos = [wesele, studniowka, firmowe, studniowka, firmowe, wesele];
 
 function Gallery() {
+  const t = useText();
   return (
     <SiteLayout>
-      <PageHero
-        kicker="Galeria"
-        title="Momenty, które zostają"
-        lead="Kilka kadrów z imprez, które miałem przyjemność poprowadzić."
-      />
+      <PageHero kicker={t("gallery.kicker")} title={t("gallery.title")} lead={t("gallery.lead")} />
       <section className="mx-auto max-w-7xl px-5 py-16">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {photos.map((src, i) => (
@@ -46,9 +44,7 @@ function Gallery() {
             />
           ))}
         </div>
-        <p className="mt-10 text-center text-sm text-muted-foreground">
-          Więcej zdjęć i relacji znajdziesz na moim profilu na Facebooku.
-        </p>
+        <p className="mt-10 text-center text-sm text-muted-foreground">{t("gallery.note")}</p>
       </section>
     </SiteLayout>
   );
