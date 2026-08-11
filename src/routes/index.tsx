@@ -15,6 +15,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { useText } from "@/hooks/useSiteContent";
 import heroDj from "@/assets/hero-dj.png.asset.json";
 import krzysiekBiznes from "@/assets/krzysiek-portret.png.asset.json";
 
@@ -43,67 +44,13 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const atuty = [
-  { icon: Crown, t: "Prowadzenie z klasą", d: "Elegancja, humor i wyczucie momentu." },
-  { icon: Mic2, t: "Głos i prezencja", d: "Wyrazisty głos i świetna dykcja sceniczna." },
-  { icon: Sparkles, t: "Oprawa wizualna", d: "Światło i efekty, które robią różnicę." },
-  { icon: ShieldCheck, t: "Pełen profesjonalizm", d: "Doświadczenie, niezawodny sprzęt, energia." },
-  { icon: Users, t: "Klimat i kontakt", d: "Z gośćmi na najwyższym poziomie." },
-  { icon: Music4, t: "Najlepsza muzyka", d: "Dobór repertuaru dla każdego pokolenia." },
-];
-
-const oferta = [
-  {
-    img: wesele,
-    t: "Wesela",
-    d: "Kompleksowa oprawa muzyczna i prowadzenie wesela z klasą, humorem i energią.",
-  },
-  {
-    img: firmowe,
-    t: "Imprezy firmowe",
-    d: "Jubileusze, bankiety i gale. Elegancka oprawa na najwyższym poziomie.",
-  },
-  {
-    img: studniowka,
-    t: "Studniówki i urodziny",
-    d: "Dynamiczna zabawa, najnowsze hity i sprawdzone klasyki.",
-  },
-];
-
-const faq = [
-  {
-    q: "Jaki rodzaj muzyki gracie?",
-    a: "Repertuar dobieram do gości i charakteru imprezy — od ponadczasowych klasyków, przez disco polo, po najnowsze światowe hity.",
-    icon: Music4,
-  },
-  {
-    q: "Czy dojeżdżasz do innych miast?",
-    a: "Tak — obsługuję cały Dolny Śląsk, a na życzenie dojeżdżam w dowolne miejsce w Polsce.",
-    icon: MapPin,
-  },
-  {
-    q: "Czy prowadzisz zabawy podczas imprezy?",
-    a: "Oczywiście. Zabawy dobieram z wyczuciem — nigdy nachalnie, zawsze tak, by goście świetnie się bawili.",
-    icon: PartyPopper,
-  },
-  {
-    q: "Czy możemy omówić szczegóły i plan imprezy przed wydarzeniem?",
-    a: "Zawsze spotykamy się (osobiście lub online), by dopiąć harmonogram, listę utworów i wszystkie życzenia.",
-    icon: CalendarCheck,
-  },
-];
-
-const opinie = [
-
-  {
-    n: "Anna",
-    t: "Najlepszy wybór na nasze wesele! Goście bawili się do białego rana. Polecamy z całego serca!",
-  },
-  { n: "Sławek", t: "Pełen profesjonalizm. Wszyscy goście chwalili muzykę i prowadzenie." },
-  { n: "Magda i Paweł", t: "Zabawy nie były nachalne, a parkiet cały czas pełny. Dziękujemy!" },
-];
+const atutIcons = [Crown, Mic2, Sparkles, ShieldCheck, Users, Music4];
+const ofertaImgs = [wesele, firmowe, studniowka];
+const faqIcons = [Music4, MapPin, PartyPopper, CalendarCheck];
 
 function Home() {
+  const t = useText();
+
   return (
     <SiteLayout>
       <section className="relative overflow-hidden bg-black pt-24">
@@ -123,22 +70,19 @@ function Home() {
         >
           <div>
             <p className="text-xs font-bold tracking-[0.3em] text-gold md:text-sm">
-              DJ • WODZIREJ • KONFERANSJER
+              {t("home.hero.kicker")}
             </p>
             <h1 className="mt-5 text-5xl leading-[1.02] md:text-7xl">
-              To nie tylko muzyka —{" "}
-              <span className="text-gilded">to przeżycie</span>
+              {t("home.hero.title1")}{" "}
+              <span className="text-gilded">{t("home.hero.title2")}</span>
             </h1>
-            <p className="mt-6 max-w-xl text-muted-foreground md:text-lg">
-              Tańczą nawet ci, którzy nigdy nie tańczą. Tworzę imprezy, o których mówi się
-              jeszcze długo — z klasą, humorem i perfekcyjną organizacją.
-            </p>
+            <p className="mt-6 max-w-xl text-muted-foreground md:text-lg">{t("home.hero.lead")}</p>
             <div className="mt-9 flex flex-wrap gap-4">
               <Link to="/kontakt" className="btn-gold">
-                Zarezerwuj termin <CalendarCheck className="size-4" />
+                {t("home.hero.cta1")} <CalendarCheck className="size-4" />
               </Link>
               <Link to="/oferta" className="btn-ghost-gold">
-                Zobacz ofertę <ArrowRight className="size-4" />
+                {t("home.hero.cta2")} <ArrowRight className="size-4" />
               </Link>
             </div>
           </div>
@@ -146,15 +90,13 @@ function Home() {
         </div>
       </section>
 
-
-
       <section className="border-y border-border/60 bg-card/30 px-5 py-16">
         <div className="mx-auto grid max-w-7xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {atuty.map((a) => (
-            <div key={a.t} className="card-lux p-6">
-              <a.icon className="size-7 text-gold" />
-              <h3 className="mt-4 text-lg text-gold-soft">{a.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{a.d}</p>
+          {atutIcons.map((Icon, i) => (
+            <div key={i} className="card-lux p-6">
+              <Icon className="size-7 text-gold" />
+              <h3 className="mt-4 text-lg text-gold-soft">{t(`home.atut.${i + 1}.t`)}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{t(`home.atut.${i + 1}.d`)}</p>
             </div>
           ))}
         </div>
@@ -163,28 +105,28 @@ function Home() {
       <section className="px-5 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
-            <p className="kicker">Oferta</p>
-            <h2 className="mt-3 text-3xl md:text-5xl">Wybierz imprezę, o której marzysz</h2>
+            <p className="kicker">{t("home.offer.kicker")}</p>
+            <h2 className="mt-3 text-3xl md:text-5xl">{t("home.offer.title")}</h2>
           </div>
           <div className="mt-12 grid gap-7 md:grid-cols-3">
-            {oferta.map((o) => (
-              <article key={o.t} className="card-lux overflow-hidden">
+            {ofertaImgs.map((img, i) => (
+              <article key={i} className="card-lux overflow-hidden">
                 <img
-                  src={o.img}
-                  alt={o.t}
+                  src={img}
+                  alt={t(`home.offer.${i + 1}.t`)}
                   loading="lazy"
                   width={1280}
                   height={853}
                   className="h-56 w-full object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl text-gold-soft">{o.t}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{o.d}</p>
+                  <h3 className="text-xl text-gold-soft">{t(`home.offer.${i + 1}.t`)}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{t(`home.offer.${i + 1}.d`)}</p>
                   <Link
                     to="/oferta"
                     className="mt-5 inline-block text-xs font-semibold uppercase tracking-[0.18em] text-gold"
                   >
-                    Dowiedz się więcej →
+                    {t("home.offer.more")}
                   </Link>
                 </div>
               </article>
@@ -205,39 +147,25 @@ function Home() {
             />
           </div>
           <div>
-            <p className="kicker">Moja historia</p>
-            <h2 className="mt-3 text-4xl md:text-5xl">Krzysztof Klimek</h2>
+            <p className="kicker">{t("home.story.kicker")}</p>
+            <h2 className="mt-3 text-4xl md:text-5xl">{t("home.story.title")}</h2>
             <div className="mt-6 space-y-5 text-muted-foreground">
-              <p>
-                Moja przygoda z muzyką i sceną zaczęła się, gdy miałem zaledwie 13 lat. Pierwsze
-                imprezy, pierwsze emocje i pierwszy kontakt z ludźmi utwierdziły mnie w przekonaniu,
-                że to jest moja droga.
-              </p>
-              <p>
-                Przez wiele lat śpiewałem i grałem na keyboardzie w zespole muzycznym. Z czasem
-                odkryłem DJ-owanie — połączenie muzyki, techniki i prowadzenia imprezy, które
-                pozwala mi w pełni realizować moją pasję.
-              </p>
-              <p>
-                Uwielbiam ludzi i muzykę — to one napędzają mnie od ponad 31 lat. Największą
-                satysfakcją jest dla mnie moment, gdy parkiet tętni życiem, a goście bawią się razem
-                od pierwszego do ostatniego utworu.
-              </p>
+              <p>{t("home.story.p1")}</p>
+              <p>{t("home.story.p2")}</p>
+              <p>{t("home.story.p3")}</p>
             </div>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {[
-                ["31", "lat doświadczenia"],
-                ["500+", "imprez"],
-                ["100%", "zaangażowania"],
-              ].map(([n, l]) => (
-                <div key={l} className="card-lux p-5 text-center">
-                  <p className="text-3xl text-gilded">{n}</p>
-                  <p className="mt-1 text-[0.65rem] uppercase tracking-[0.18em]">{l}</p>
+              {[1, 2, 3].map((n) => (
+                <div key={n} className="card-lux p-5 text-center">
+                  <p className="text-3xl text-gilded">{t(`home.story.stat${n}.n`)}</p>
+                  <p className="mt-1 text-[0.65rem] uppercase tracking-[0.18em]">
+                    {t(`home.story.stat${n}.l`)}
+                  </p>
                 </div>
               ))}
             </div>
             <Link to="/o-mnie" className="btn-ghost-gold mt-8">
-              Poznaj mnie lepiej
+              {t("home.story.cta")}
             </Link>
           </div>
         </div>
@@ -246,20 +174,24 @@ function Home() {
       <section className="border-t border-border/60 bg-card/30 px-5 py-20">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="kicker">FAQ</p>
-            <h2 className="mt-3 text-3xl md:text-4xl">Najczęstsze pytania</h2>
+            <p className="kicker">{t("home.faq.kicker")}</p>
+            <h2 className="mt-3 text-3xl md:text-4xl">{t("home.faq.title")}</h2>
             <div className="mt-8 space-y-3">
-              {faq.map(({ q, a, icon: Icon }) => (
+              {faqIcons.map((Icon, i) => (
                 <details
-                  key={q}
+                  key={i}
                   className="group card-lux overflow-hidden px-5 py-4 transition-colors hover:border-gold/50"
                 >
                   <summary className="flex cursor-pointer list-none items-center gap-4">
                     <Icon className="size-5 shrink-0 text-gold" />
-                    <span className="flex-1 text-sm text-foreground/90">{q}</span>
+                    <span className="flex-1 text-sm text-foreground/90">
+                      {t(`home.faq.${i + 1}.q`)}
+                    </span>
                     <Plus className="size-4 shrink-0 text-gold transition-transform group-open:rotate-45" />
                   </summary>
-                  <p className="mt-3 pl-9 text-sm text-muted-foreground">{a}</p>
+                  <p className="mt-3 pl-9 text-sm text-muted-foreground">
+                    {t(`home.faq.${i + 1}.a`)}
+                  </p>
                 </details>
               ))}
             </div>
@@ -276,20 +208,21 @@ function Home() {
         </div>
       </section>
 
-
       <section className="border-y border-border/60 bg-card/30 px-5 py-20">
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
-            <p className="kicker">Opinie</p>
-            <h2 className="mt-3 text-3xl md:text-4xl">Co mówią klienci</h2>
+            <p className="kicker">{t("home.reviews.kicker")}</p>
+            <h2 className="mt-3 text-3xl md:text-4xl">{t("home.reviews.title")}</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {opinie.map((o) => (
-              <div key={o.n} className="card-lux p-6">
+            {[1, 2, 3].map((n) => (
+              <div key={n} className="card-lux p-6">
                 <Quote className="size-6 text-gold" />
-                <p className="mt-4 text-sm text-muted-foreground">{o.t}</p>
+                <p className="mt-4 text-sm text-muted-foreground">{t(`home.review.${n}.t`)}</p>
                 <div className="mt-5 flex items-center gap-2">
-                  <span className="text-sm font-semibold text-gold-soft">{o.n}</span>
+                  <span className="text-sm font-semibold text-gold-soft">
+                    {t(`home.review.${n}.n`)}
+                  </span>
                   <span className="flex text-gold">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="size-3.5 fill-current" />
@@ -305,15 +238,13 @@ function Home() {
       <section className="px-5 py-24 text-center">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-3xl md:text-5xl">
-            Zadbajmy razem
+            {t("home.cta.title1")}
             <br />
-            <span className="text-gilded">o niezapomnianą imprezę</span>
+            <span className="text-gilded">{t("home.cta.title2")}</span>
           </h2>
-          <p className="mt-5 text-muted-foreground">
-            Twój wyjątkowy dzień zasługuje na oprawę, która przerośnie oczekiwania.
-          </p>
+          <p className="mt-5 text-muted-foreground">{t("home.cta.lead")}</p>
           <Link to="/kontakt" className="btn-gold mt-8">
-            Sprawdź dostępny termin
+            {t("home.cta.button")}
           </Link>
         </div>
       </section>
