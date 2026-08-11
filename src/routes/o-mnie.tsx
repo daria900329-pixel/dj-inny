@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, PageHero } from "@/components/site/SiteLayout";
+import { useText } from "@/hooks/useSiteContent";
 
 export const Route = createFileRoute("/o-mnie")({
   head: () => ({
@@ -23,45 +24,26 @@ export const Route = createFileRoute("/o-mnie")({
 });
 
 function About() {
+  const t = useText();
   return (
     <SiteLayout>
-      <PageHero
-        kicker="Moja historia"
-        title="Krzysztof Klimek"
-        lead="DJ, wodzirej i konferansjer. Prowadzę imprezy, na których tańczą nawet ci, którzy nigdy nie tańczą."
-      />
+      <PageHero kicker={t("about.kicker")} title={t("about.title")} lead={t("about.lead")} />
       <section className="mx-auto max-w-3xl space-y-6 px-5 py-16 text-muted-foreground">
-        <p>
-          Moja przygoda z muzyką i sceną zaczęła się bardzo wcześnie. Pierwsze imprezy, pierwsze
-          emocje i pierwszy kontakt z ludźmi utwierdziły mnie w przekonaniu, że to jest moja droga.
-        </p>
-        <p>
-          Przez wiele lat śpiewałem i grałem na keyboardzie w zespole muzycznym. Z czasem odkryłem
-          DJ-owanie — połączenie muzyki, techniki i prowadzenia imprezy, które pozwala mi w pełni
-          realizować moją pasję.
-        </p>
-        <p>
-          Uwielbiam ludzi i muzykę. Największą satysfakcją jest dla mnie moment, gdy parkiet tętni
-          życiem, a goście bawią się razem od pierwszego do ostatniego utworu.
-        </p>
-        <p className="text-gold-soft">
-          Zaufanie, które otrzymuję, jest dla mnie największym wyróżnieniem.
-        </p>
+        <p>{t("about.p1")}</p>
+        <p>{t("about.p2")}</p>
+        <p>{t("about.p3")}</p>
+        <p className="text-gold-soft">{t("about.p4")}</p>
         <div className="grid gap-4 pt-6 sm:grid-cols-3">
-          {[
-            ["30+", "lat na scenie"],
-            ["500+", "poprowadzonych imprez"],
-            ["100%", "zaangażowania"],
-          ].map(([n, l]) => (
-            <div key={l} className="card-lux p-6 text-center">
-              <p className="text-3xl text-gilded">{n}</p>
-              <p className="mt-1 text-xs uppercase tracking-[0.18em]">{l}</p>
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="card-lux p-6 text-center">
+              <p className="text-3xl text-gilded">{t(`about.stat${i}.n`)}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.18em]">{t(`about.stat${i}.l`)}</p>
             </div>
           ))}
         </div>
         <div className="pt-6">
           <Link to="/kontakt" className="btn-gold">
-            Porozmawiajmy o Twojej imprezie
+            {t("about.cta")}
           </Link>
         </div>
       </section>

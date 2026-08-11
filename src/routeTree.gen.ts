@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as GaleriaRouteImport } from './routes/galeria'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as OMnieRouteImport } from './routes/o-mnie'
@@ -18,6 +19,11 @@ import { Route as OfertaRouteImport } from './routes/oferta'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GaleriaRoute = GaleriaRouteImport.update({
@@ -43,6 +49,7 @@ const OfertaRoute = OfertaRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/galeria': typeof GaleriaRoute
   '/kontakt': typeof KontaktRoute
   '/o-mnie': typeof OMnieRoute
@@ -50,6 +57,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/galeria': typeof GaleriaRoute
   '/kontakt': typeof KontaktRoute
   '/o-mnie': typeof OMnieRoute
@@ -58,6 +66,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
   '/galeria': typeof GaleriaRoute
   '/kontakt': typeof KontaktRoute
   '/o-mnie': typeof OMnieRoute
@@ -65,14 +74,22 @@ export interface FileRoutesById {
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/galeria' | '/kontakt' | '/o-mnie' | '/oferta'
+  fullPaths: '/' | '/admin' | '/galeria' | '/kontakt' | '/o-mnie' | '/oferta'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/galeria' | '/kontakt' | '/o-mnie' | '/oferta'
-  id: '__root__' | '/' | '/galeria' | '/kontakt' | '/o-mnie' | '/oferta'
+  to: '/' | '/admin' | '/galeria' | '/kontakt' | '/o-mnie' | '/oferta'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/galeria'
+    | '/kontakt'
+    | '/o-mnie'
+    | '/oferta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
   GaleriaRoute: typeof GaleriaRoute
   KontaktRoute: typeof KontaktRoute
   OMnieRoute: typeof OMnieRoute
@@ -86,6 +103,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/galeria': {
@@ -121,6 +145,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
   GaleriaRoute: GaleriaRoute,
   KontaktRoute: KontaktRoute,
   OMnieRoute: OMnieRoute,
