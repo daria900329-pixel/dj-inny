@@ -54,30 +54,40 @@ function Home() {
   return (
     <SiteLayout>
       <section className="relative overflow-hidden bg-black pt-24">
-        <div className="absolute inset-x-0 bottom-0 top-24">
+        <div className="absolute inset-x-0 bottom-0 top-24 hidden lg:block">
           <img
             src={heroDj.url}
             alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
-            className="size-full object-cover object-[72%_top] brightness-110 contrast-105"
+            className="size-full object-cover object-[30%_top] brightness-110 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/45 to-transparent md:via-black/35" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         </div>
 
+        <div className="relative lg:hidden">
+          <div className="relative aspect-[4/5] w-full">
+            <img
+              src={heroDj.url}
+              alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
+              className="size-full object-cover object-[48%_top] brightness-110 contrast-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/95" />
+          </div>
+        </div>
+
         <div
-          className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-20 pt-10 min-h-[640px] lg:min-h-[780px] lg:grid-cols-[1.05fr_1fr]"
-          style={{ textShadow: "0 2px 24px rgba(0,0,0,0.85)" }}
+          className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-5 pb-16 pt-8 lg:min-h-[780px] lg:items-start lg:pb-20 lg:pt-20 lg:grid-cols-[1fr_1fr]"
+          style={{ textShadow: "0 2px 24px rgba(0,0,0,0.92)" }}
         >
-          <div>
+          <div className="relative max-w-xl rounded-2xl border border-gold/10 bg-black/75 p-5 shadow-2xl lg:max-w-lg lg:bg-black/70 lg:p-7">
             <p className="text-xs font-bold tracking-[0.3em] text-gold md:text-sm">
               {t("home.hero.kicker")}
             </p>
-            <h1 className="mt-5 text-5xl leading-[1.02] md:text-7xl">
+            <h1 className="mt-4 text-4xl leading-[1.02] md:text-6xl lg:text-6xl">
               {t("home.hero.title1")}{" "}
               <span className="text-gilded">{t("home.hero.title2")}</span>
             </h1>
-            <p className="mt-6 max-w-xl text-muted-foreground md:text-lg">{t("home.hero.lead")}</p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <p className="mt-5 max-w-xl text-sm text-muted-foreground md:text-base lg:text-lg">{t("home.hero.lead")}</p>
+            <div className="mt-7 flex flex-wrap gap-3 md:mt-9 md:gap-4">
               <Link to="/kontakt" className="btn-gold">
                 {t("home.hero.cta1")} <CalendarCheck className="size-4" />
               </Link>
