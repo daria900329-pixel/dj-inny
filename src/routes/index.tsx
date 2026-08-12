@@ -58,9 +58,9 @@ function Home() {
           <img
             src={heroDj.url}
             alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
-            className="size-full object-cover object-[35%_top] brightness-110 contrast-105"
+            className="size-full object-cover object-[30%_top] brightness-110 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/45 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         </div>
 
@@ -76,14 +76,14 @@ function Home() {
         </div>
 
         <div
-          className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-5 pb-16 pt-8 lg:min-h-[780px] lg:items-center lg:pb-20 lg:pt-10 lg:grid-cols-[1.05fr_1fr]"
+          className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-5 pb-16 pt-8 lg:min-h-[780px] lg:items-start lg:pb-20 lg:pt-20 lg:grid-cols-[1fr_1fr]"
           style={{ textShadow: "0 2px 24px rgba(0,0,0,0.92)" }}
         >
-          <div className="relative max-w-xl">
+          <div className="relative max-w-xl lg:max-w-lg">
             <p className="text-xs font-bold tracking-[0.3em] text-gold md:text-sm">
               {t("home.hero.kicker")}
             </p>
-            <h1 className="mt-4 text-4xl leading-[1.02] md:text-6xl lg:text-7xl">
+            <h1 className="mt-4 text-4xl leading-[1.02] md:text-6xl lg:text-6xl">
               {t("home.hero.title1")}{" "}
               <span className="text-gilded">{t("home.hero.title2")}</span>
             </h1>
