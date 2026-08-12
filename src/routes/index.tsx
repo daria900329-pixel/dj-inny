@@ -58,15 +58,16 @@ function Home() {
           <img
             src={heroDj.url}
             alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
-            className="size-full object-cover object-[72%_top] brightness-110 contrast-105"
+            className="size-full object-cover object-[58%_top] lg:object-[85%_top] brightness-110 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/45 to-transparent md:via-black/35" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/55 to-black/20 lg:via-black/35 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 lg:hidden" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         </div>
 
         <div
-          className="relative mx-auto grid w-full max-w-7xl items-center gap-8 px-5 pb-20 pt-10 min-h-[640px] lg:min-h-[780px] lg:grid-cols-[1.05fr_1fr]"
-          style={{ textShadow: "0 2px 24px rgba(0,0,0,0.85)" }}
+          className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-5 pb-32 pt-8 min-h-[680px] lg:min-h-[780px] lg:items-center lg:pt-10 lg:pb-20 lg:grid-cols-[1.05fr_1fr]"
+          style={{ textShadow: "0 2px 24px rgba(0,0,0,0.9)" }}
         >
           <div>
             <p className="text-xs font-bold tracking-[0.3em] text-gold md:text-sm">
