@@ -54,40 +54,47 @@ function Home() {
   return (
     <SiteLayout>
       <section className="relative overflow-hidden bg-black pt-24">
-        <div className="absolute inset-x-0 bottom-0 top-24">
+        <div className="absolute inset-x-0 bottom-0 top-24 hidden lg:block">
           <img
             src={heroDj.url}
             alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
-            className="size-full object-cover object-[48%_top] lg:object-[35%_top] brightness-110 contrast-105"
+            className="size-full object-cover object-[35%_top] brightness-110 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-transparent lg:via-black/40" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/45 to-black/75 lg:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/50 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         </div>
 
+        <div className="relative lg:hidden">
+          <div className="relative aspect-[4/5] w-full">
+            <img
+              src={heroDj.url}
+              alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
+              className="size-full object-cover object-[48%_top] brightness-110 contrast-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/95" />
+          </div>
+        </div>
+
         <div
-          className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-5 pb-28 pt-6 min-h-[640px] lg:min-h-[780px] lg:items-center lg:pt-10 lg:pb-20 lg:grid-cols-[1.05fr_1fr]"
+          className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-5 pb-16 pt-8 lg:min-h-[780px] lg:items-center lg:pb-20 lg:pt-10 lg:grid-cols-[1.05fr_1fr]"
           style={{ textShadow: "0 2px 24px rgba(0,0,0,0.92)" }}
         >
-          <div className="relative max-w-xl rounded-2xl bg-gradient-to-br from-black/70 to-black/30 p-5 backdrop-blur-sm lg:bg-none lg:p-0 lg:backdrop-blur-none">
-            <div className="absolute -inset-4 rounded-[1.6rem] bg-gradient-to-r from-black/60 to-transparent blur-2xl lg:hidden" />
-            <div className="relative">
-              <p className="text-xs font-bold tracking-[0.3em] text-gold md:text-sm">
-                {t("home.hero.kicker")}
-              </p>
-              <h1 className="mt-4 text-4xl leading-[1.02] md:text-6xl lg:text-7xl">
-                {t("home.hero.title1")}{" "}
-                <span className="text-gilded">{t("home.hero.title2")}</span>
-              </h1>
-              <p className="mt-5 max-w-xl text-sm text-muted-foreground md:text-base lg:text-lg">{t("home.hero.lead")}</p>
-              <div className="mt-7 flex flex-wrap gap-3 md:mt-9 md:gap-4">
-                <Link to="/kontakt" className="btn-gold">
-                  {t("home.hero.cta1")} <CalendarCheck className="size-4" />
-                </Link>
-                <Link to="/oferta" className="btn-ghost-gold">
-                  {t("home.hero.cta2")} <ArrowRight className="size-4" />
-                </Link>
-              </div>
+          <div className="relative max-w-xl">
+            <p className="text-xs font-bold tracking-[0.3em] text-gold md:text-sm">
+              {t("home.hero.kicker")}
+            </p>
+            <h1 className="mt-4 text-4xl leading-[1.02] md:text-6xl lg:text-7xl">
+              {t("home.hero.title1")}{" "}
+              <span className="text-gilded">{t("home.hero.title2")}</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-sm text-muted-foreground md:text-base lg:text-lg">{t("home.hero.lead")}</p>
+            <div className="mt-7 flex flex-wrap gap-3 md:mt-9 md:gap-4">
+              <Link to="/kontakt" className="btn-gold">
+                {t("home.hero.cta1")} <CalendarCheck className="size-4" />
+              </Link>
+              <Link to="/oferta" className="btn-ghost-gold">
+                {t("home.hero.cta2")} <ArrowRight className="size-4" />
+              </Link>
             </div>
           </div>
           <div className="hidden lg:block" />
