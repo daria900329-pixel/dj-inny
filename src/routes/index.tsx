@@ -79,7 +79,7 @@ function Home() {
           className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-5 pb-16 pt-8 lg:min-h-[780px] lg:items-start lg:pb-20 lg:pt-20 lg:grid-cols-[1fr_1fr]"
           style={{ textShadow: "0 2px 24px rgba(0,0,0,0.92)" }}
         >
-          <div className="relative max-w-xl lg:max-w-lg">
+          <div className="relative max-w-xl rounded-2xl bg-gradient-to-br from-black/70 to-black/25 p-5 backdrop-blur-[2px] lg:max-w-lg lg:p-7">
             <p className="text-xs font-bold tracking-[0.3em] text-gold md:text-sm">
               {t("home.hero.kicker")}
             </p>
