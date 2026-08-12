@@ -58,15 +58,15 @@ function Home() {
           <img
             src={heroDj.url}
             alt="DJ Inny — Krzysztof Klimek prowadzi imprezę przy konsolecie"
-            className="size-full object-cover object-[62%_top] lg:object-[92%_top] brightness-110 contrast-105"
+            className="size-full object-cover object-[45%_top] lg:object-[38%_top] brightness-110 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/60 to-black/25 lg:via-black/30 lg:to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/40 to-black/70 lg:hidden" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-black/30 lg:via-black/40 lg:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/30 to-black/70 lg:hidden" />
           <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background to-transparent" />
         </div>
 
         <div
-          className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-5 pb-28 pt-6 min-h-[640px] lg:min-h-[780px] lg:items-center lg:pt-10 lg:pb-20 lg:grid-cols-[1fr_1.15fr]"
+          className="relative mx-auto grid w-full max-w-7xl items-start gap-8 px-5 pb-28 pt-6 min-h-[640px] lg:min-h-[780px] lg:items-center lg:pt-10 lg:pb-20 lg:grid-cols-[1.1fr_1fr]"
           style={{ textShadow: "0 2px 24px rgba(0,0,0,0.92)" }}
         >
           <div className="max-w-xl lg:max-w-none">
